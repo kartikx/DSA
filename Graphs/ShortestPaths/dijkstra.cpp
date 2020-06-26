@@ -33,32 +33,6 @@ void printGraph(Graph graph, int v)
     }
 }
 
-// void dfsUtil(Graph graph, int v, vector<bool>& visited)
-// {   
-//     cout << v << " ";
-//     for (auto x : graph[v])
-//     {
-//         if (!visited[x])
-//         {
-//             visited[x] = true;
-//             dfsUtil(graph, x, visited);
-//         }
-//     }
-// }
-
-// void dfsUtil(Graph graph, int v, vector<bool>& visited, int &lastFinished)
-// {
-//     for (auto x : graph[v])
-//     {
-//         if (!visited[x])
-//         {
-//             visited[x] = true;
-//             dfsUtil(graph, x, visited, lastFinished);
-//         }
-//     }
-//     lastFinished = v;
-// }
-
 void dijkstra(Graph g, int v)
 {
     vector<int> dist(V, INF);
@@ -80,9 +54,9 @@ void dijkstra(Graph g, int v)
     {
         pair<int,int> curr = pq.top();
         pq.pop();
-        visited[curr.second] = true;
         if (curr.first > dist[curr.second])
             continue;
+        visited[curr.second] = true;
         for(auto x : g[curr.second]){
             if (!visited[x.first]){
                 if (dist[x.first] > dist[curr.second] + x.second){
