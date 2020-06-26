@@ -11,6 +11,7 @@ Topics covered in Graphs so far:
     * Finding any Topological Sort of a DAG, using DFS
     * Finding any Topological Sort of a DAG, using Kahn's Algorithm
     * Finding all Topological Sorts of a DAG, using Kahn's Algorithm
+    * Find maximum number of Edges you can add to a DAG, so that it remains a DAG.
 * Find the Mother Vertex in a Graph
 * Shortest Paths
     * SSSP using Dijkstra's
