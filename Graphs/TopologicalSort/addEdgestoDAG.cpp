@@ -29,7 +29,12 @@ void printGraph(Graph graph, int v)
     }
 }
 
-// what does this return? a copy? can i return reference?
+/**
+ * Contrary to intuition, this method is not slow.
+ * The vector returned isn't later going to be copied
+ * value by value. Instead it functions through move semantics,
+ * which rearranges the pointers. Also see copy elision.
+ */
 vector<int> topoSort(Graph graph)
 {
     vector<int> inDegree(V,0);
