@@ -14,8 +14,17 @@ Topics covered in Graphs so far:
     * Find maximum number of Edges you can add to a DAG, so that it remains a DAG.
 * Find the Mother Vertex in a Graph
 * Shortest Paths
+    * SSSP in Undirected Weighted Graphs 
     * SSSP using Dijkstra's
     * SSSP using Bellman Ford
     * SSSP using Topological Sort
     * ASSP using Floyd Warshall
+* Misc
+    * BFS Implementation.
+    * Find number of Nodes at Level L in a Tree.
+    * Iterative DFS.
+    * Find K-Cores of a Graph.
+    * Find number of paths between two nodes in a graph.
+    * Clone a graph given a source node
+    * Find whether two nodes are on the same path of a tree from root to leaf.
 
