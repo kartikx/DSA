@@ -22,6 +22,8 @@ Now the path from source s to v containing 2 edges, can be considered as path fr
 Now before you get to 2 edges, you will have relaxed every edge for the 1 edge case. Hence the s to u path with 1 edge, is known to us. Now we just have to consider the direct edge. 
 Hence, this is a DP algorithm. Since, max length possible is V-1, this loop iterates V-1 times.
 
+After one iteration, you would have computed the shortest path from the source using just one edge. So for all vertices that are located 2 edges or more away, then the distance would (correctly) be infinite (for now). This will get rectified as you consider more edges.
+
 https://comtechstash.wordpress.com/2013/12/23/bellman-ford-algorithm-an-intuitive-understanding/
 https://www.youtube.com/watch?v=lyw4FaxrwHg&list=PLDV1Zeh2NRsDGO4--qE8yH72HFL1Km93P&index=19
 
