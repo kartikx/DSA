@@ -55,6 +55,7 @@ void bellmanFord(Graph g, int v)
             }
         }
     }
+
     forn(i,0,V)
     {
         cout << dist[i] << " ";
