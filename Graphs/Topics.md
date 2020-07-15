@@ -37,4 +37,7 @@ Topics covered in Graphs so far:
     * Clone a graph given a source node.
     * Find whether two nodes are on the same path of a tree from root to leaf.
     * Using BFS to find minimum path from Start to End in a grid.
+    * Find the longest path between any 2 nodes in an Undirected Graph.
+    * Print Path between 2 given nodes in a graph.
+    * Bidirectional Search
 
