@@ -2,4 +2,4 @@
 * Finding Center of a Tree
 * Checking if two trees are isomorphic
 * Reconstructing a Tree from its AHU Code.
-
+* Find diameter of Binary/Nary tree.
