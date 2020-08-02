@@ -23,6 +23,14 @@ void addEdge(G graph, int u, int v, bool undirected=true)
         graph[v].push_back(u);
 }
 
+/**
+ * You can do this using a Queue as well, the only important thing is that you should first process
+ * existing leaves, before processing leaves that were created due to removal of an existing leaf.
+ * Also you don't need to store a visited array, sure you may run into a vertex that has been "removed",
+ * however since you'll push into the Queue (or into the vector) only if indegree is 1, the vertex
+ * won't be re-put.
+*/
+
 void centerTree(G graph)
 {
     vector<int> degree(V, 0);
