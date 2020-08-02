@@ -1,5 +1,11 @@
 #1. Dijkstra#
-Time Complexity : O((E+V)logV) in my implementation, best case O(E + VlogV) using Fibonacci Heaps.
+Time Complexity : 
+* Lazy Implementation: O(ElogE)
+* Update Implementation : O(ElogV)
+* Best Case O(E + VlogV) using Fibonacci Heaps.
+
+Explanation: In the worst case, every vertex is connect to every other. In the lazy implementation, you may keep adding vertices to the PQ for all edges. Hence retrieval time from PQ is O(logE). (first you add for source vertex V vertices, then for next best vertex V more and so on .. ). Then you'll have to relax every edge, hence Elog(E). For the updated version, you won't have more than V vertices in the PQ, hence ElogV.
+
 Source: https://www.youtube.com/watch?v=pSqmAO-m7Lk&list=PLDV1Zeh2NRsDGO4--qE8yH72HFL1Km93P&index=18&t=426s
 
 Dijkstra is a single source shortest path algorithm, applicable only on graphs with non-negative weights. The algorithm leverages this property by not re-visiting any node. If you've visited a node, since there aren't any negative edges, you can't then take any path to end up back at that node with a smaller value than before.
