@@ -26,31 +26,64 @@ in strictly descending order in the array. Once a number greater than "ANY"
 number is encountered, even if the number in stack is present somewhere in the middle,
 it and all numbers above it on the stack would be removed. Because the numbers above
 it must be smaller than the middle number.
-*/
 
-void nextGreaterElement(vector<int>& nums)
+void nextGreaterElement(vector<int>& nums, vector<int>& res)
 {
-    stack<int> s;
-    s.push(nums[0]);
-    for (int i=1; i<nums.size(); i++)
+    stack<pair<int,int>> s;
+    for (int i=0; i<nums.size(); i++)
     {
         int curr = nums[i];
-        while(!s.empty() && s.top() < curr) {
-            cout << "Next greater for " << s.top() << " is " << curr << endl;
+        while(!s.empty() && s.top().first < curr) {
+            // cout << "Next greater for " << s.top().first << " is " << curr << endl;
+            res[s.top().second] = curr;
             s.pop();
         }
-        s.push(curr);
+        s.push({curr, i});
     }
 
     while(!s.empty())
     {
-        cout << "Next greater for " << s.top() << " is " << -1 ;
+        // cout << "Next greater for " << s.top() << " is " << -1 ;
+        res[s.top().second] = -1;
         s.pop(); 
+    }
+}
+*/
+
+/*
+This answer is further optimized to allow printing of the elements
+in order. If you use normal approach, since you are using in stack, some elements
+that appeared first, may be processed later.
+For in-order, you can either put the Index into your stack and use the same approach,
+or you can traverse from right to left.
+*/
+void nextGreaterElement(vector<int>& nums, vector<int>& res)
+{
+    stack<int> s;
+
+    for (int i = nums.size() - 1; i >= 0; --i) {
+        int curr = nums[i];
+        while (!s.empty() && s.top() <= curr)
+        {
+            s.pop();
+        }
+        if (!s.empty()) {
+            res[i] = s.top();
+        }
+        else {
+            res[i] = -1;
+        }
+        s.push(curr);
     }
 }
 
 int main()
 {
     vector<int> nums{1, 3, 2, 4, 7, 5, 0, 4};
-    nextGreaterElement(nums);
+    vector<int> res(nums.size(), 0);
+    nextGreaterElement(nums, res);
+
+    for (int i=0;i<nums.size();i++) {
+        cout << nums[i] << "-" << res[i] << " ";
+    }
 }
