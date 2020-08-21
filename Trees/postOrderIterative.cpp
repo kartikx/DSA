@@ -64,7 +64,13 @@ BinaryNode* constructBinaryTree(vector<int>& nodes)
     return root;
 }
 
-void inOrderIterative(BinaryNode* root)
+/*
+Read the Pre-Order Iterative TechieDelight article.
+Instead of pushing both elements into stack, an
+optimization is to use curr=curr->left and just push the
+right one. Similar approach may be followed here.
+*/
+void postOrderIterative(BinaryNode* root)
 {
     if (!root)
         return;

@@ -1,0 +1,5 @@
+1. Solve the good questions you see on the main palindromes page. (10)
+2. https://www.codingame.com/playgrounds/52959/common-coding-interview-questions-palindromes
+3. Solve a few anagram questions. (5)
+4. Rotations (10).
+5. Do the rotate array question I skipped today.
