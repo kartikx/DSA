@@ -1,0 +1,4 @@
+## Hoare vs Lomuto
+* In Lomuto's Scheme, you're guaranteed that the element considered as Pivot will be returned so that it is at it's correct position. Also, the container is returned such that elements to the left are <= and elements to the right are >.
+* In Hoare's, this guarrantee is not present. The index which is returned marks the last element of the left interval. The left interval contains elements <= to pivot (which was originally the first element), and the right interval contains elements >= to pivot. That is both elements may contain the pivot element.
+* Hoare's is better because it requires 3x fewer swaps, and will give good partitions even if all values are equal.
