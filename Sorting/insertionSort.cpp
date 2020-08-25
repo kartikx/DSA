@@ -27,5 +27,5 @@ void insertionSortOpt(vector<int>& v) {
 
 int main() {
     vector<int> v{2, 6, 1, 1, 8 ,1, 2, 1, 5 ,22, 61, 7, 24, 9};
-    insetionSortOpt(v);
+    insertionSortOpt(v);
 }
