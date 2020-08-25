@@ -25,7 +25,28 @@ void insertionSortOpt(vector<int>& v) {
     }
 }
 
+void insertionSortRecUtil(vector<int>& v, int i, int val) {
+    if (i == 0 || v[i-1] <= val)
+    {
+        v[i] = val;
+        return;
+    }
+
+    v[i] = v[i-1];
+    insertionSortRecUtil(v, i-1, val);
+}
+
+void insertionSortRec(vector<int>& v) {
+    for (int i=1; i<v.size(); i++) {
+        insertionSortRecUtil(v, i, v[i]);
+    }
+}
+
 int main() {
     vector<int> v{2, 6, 1, 1, 8 ,1, 2, 1, 5 ,22, 61, 7, 24, 9};
-    insertionSortOpt(v);
+    insertionSortRec(v);
+    for (auto x : v) {
+        cout << x << " " ;
+    }
+    cout << endl;
 }
