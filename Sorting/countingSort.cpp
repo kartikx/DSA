@@ -30,7 +30,8 @@ void countingSort(vector<int>& v) {
 
     vector<int> output(v.size(), 0);
 
-    for (int i=0; i<v.size(); i++) {
+    // You should always start from the end, this makes it stable.
+    for (int i=v.size()-1; i>=0; i--) {
         // OrgValue is the value supposed to be in unaltered v[i].
         int orgValue = v[i] % (maxEle + 1);
 
