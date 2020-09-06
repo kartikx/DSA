@@ -37,7 +37,6 @@ void convertBSTToLL(Node* root, Node*& head) {
 
     // Forming a Singly Linked List.
 
-    // ? But why is this needed?
     if (head) {
         head->left = NULL;
     }

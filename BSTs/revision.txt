@@ -1,0 +1,60 @@
+        7
+      8     15
+        6
+      10
+
+      10 6 8 7   
+void reversePath(Node* root, int key, queue<int>& path, bool& found) {
+
+    if (!root) {
+        return ;
+    }
+
+    path.push(root->val);
+
+    if (root->val == key) {
+        root->val = path.front();
+        path.pop();
+        found = true;
+        return;
+    }
+
+    reversePath(root->left, path, found);
+
+    if (!found) {
+        reversePath(root->right, path, found);
+    }
+
+    if (!found) {
+        path.pop();
+        return;
+    }
+
+Node* LCA(Node* root, int key1, int key2, bool& found1, bool& found2) {
+    if (!root) {
+        return root;
+    }
+
+    if (root->val == key1)
+        found1 = true;
+    
+    if (root->val == key2)
+        found2 = true;
+
+    Node* left = NULL, *right = NULL;
+
+    if (found1 && found2)
+        return root;
+
+    left = LCA(root->left, key1, key2, found1, found2);
+
+    if (found1 && found2)
+        return root;
+    
+    right = LCA(root->right, key1, key2, found1, found2);
+
+    if (found1 && found2)
+        return root;
+    
+}
+

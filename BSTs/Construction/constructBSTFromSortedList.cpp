@@ -28,8 +28,7 @@ Node* constructBSTUtil(list<int>::iterator& it, int n) {
     it++;
     root->left = leftTree;
 
-    // ! This should be n - n/2 -1, see for odd.
-    Node* rightTree = constructBSTUtil(it, n/2 - 1);
+    Node* rightTree = constructBSTUtil(it, n - n/2 - 1);
     root->right = rightTree;
 
     return root;

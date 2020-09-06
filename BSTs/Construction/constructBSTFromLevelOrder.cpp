@@ -53,7 +53,7 @@ Node* constructBST(vector<int>& levelOrder) {
             index++;
         }
 
-        if (inRange(levelOrder[index], {currNode->val, range.second})) {
+        if (index < levelOrder.size() && inRange(levelOrder[index], {currNode->val, range.second})) {
             Node* newNode = new Node(levelOrder[index]);
             currNode->right = newNode;
             q.push({newNode, {currNode->val, range.second}});

@@ -87,9 +87,43 @@ Node* constructBSTOpt(vector<int>& preorder) {
     return constructBSTUtil(preorder, index, INT_MIN, INT_MAX); 
 }
 
+Node* constructBSTIter(vector<int>& preorder) {
+    stack<Node*> s;
+    Node* root = NULL;
+    for (int i=0; i<preorder.size(); ++i) {
+        int currVal = preorder[i];
+
+        Node* newNode = new Node(currVal);
+
+        if (!root) {
+            root = newNode;
+            s.push(newNode);
+            continue;
+        }
+
+        if (currVal < s.top()->val) {
+            s.top()->left = newNode;
+            s.push(newNode);
+        }
+        
+        else {
+            Node* temp;
+            while (!s.empty() && s.top()->val < currVal) {
+                temp = s.top();
+                s.pop();
+            }
+
+            temp->right = newNode;
+            s.push(newNode);
+        }
+    }
+
+    return root;
+}
+
 int main() {
     vector<int> v{10, 6, 4, 8, 15, 12, 27};
-    Node* root = constructBSTOpt(v);
+    Node* root = constructBSTIter(v);
 
     printTree(root);
 }

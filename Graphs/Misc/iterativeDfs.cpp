@@ -76,6 +76,7 @@ void dfs1(Graph g, int v)
 
 /**
  * GfG approach, much cleaner.
+ * Literally exactly the BFS approach, except with a Stack.
  */
 void dfs2(Graph g, int v)
 {

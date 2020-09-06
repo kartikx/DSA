@@ -12,7 +12,7 @@ int countSubsequence(string& s1, string& s2, int i, int j) {
     int ans = 0;
     for (int c = i; c < s1.length(); c++) {
         if (s1[c] == s2[j]) {
-            ans += countSubsequence(s1, s2, c+1, j+1);
+            ans += countSubsequence(s1, s2, c+1, j+1);  
         }
     }
     return ans;

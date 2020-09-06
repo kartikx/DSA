@@ -13,40 +13,40 @@ class Node {
         Node* right;
 };
 
-bool getPathUtil(Node* root, int key, vector<int>& path) {
-    if (root->val == key) {
-        return true;
-    }
+// bool getPathUtil(Node* root, int key, vector<int>& path) {
+//     if (root->val == key) {
+//         return true;
+//     }
 
-    bool b1 = false, b2 = false;
-    if (root->left) {
-        path.push_back(root->left->val);
-        b1 = getPathUtil(root->left, key, path);
-        if (!b1) {
-            path.pop_back();
-        }
-    }
+//     bool b1 = false, b2 = false;
+//     if (root->left) {
+//         path.push_back(root->left->val);
+//         b1 = getPathUtil(root->left, key, path);
+//         if (!b1) {
+//             path.pop_back();
+//         }
+//     }
 
-    if (root->right) {
-        path.push_back(root->right->val);
-        b2 = getPathUtil(root->right, key, path);
-        if (!b2) {
-            path.pop_back();
-        }
-    }
+//     if (root->right) {
+//         path.push_back(root->right->val);
+//         b2 = getPathUtil(root->right, key, path);
+//         if (!b2) {
+//             path.pop_back();
+//         }
+//     }
 
-    return (b1 || b2);
-}
+//     return (b1 || b2);
+// }
 
-vector<int> getPath(Node* root, int key) {
-    vector<int> path;
-    if (!root) {
-        return path;
-    }
-    path.push_back(root->val);
-    getPathUtil(root, key, path);
-    return path;
-}
+// vector<int> getPath(Node* root, int key) {
+//     vector<int> path;
+//     if (!root) {
+//         return path;
+//     }
+//     path.push_back(root->val);
+//     getPathUtil(root, key, path);
+//     return path;
+// }
 
 vector<int> getPathBST(Node* root, int key) {
     vector<int> path;
@@ -121,7 +121,33 @@ void reverseTreePathBST(Node* root, int key) {
     cout << endl;
 }
 
+void printTree(Node* root) {
+    if (!root) {
+        return;
+    }
+
+    queue<Node*> q;
+    q.push(root);
+
+    while (!q.empty()) {
+        int size = (int) q.size();
+        for (int i=0; i<size; i++) {
+            Node* curr = q.front(); q.pop();
+            if (curr) {
+                cout << curr->val << " ";
+                q.push(curr->left);
+                q.push(curr->right);
+            }
+            else {
+                cout << -1 << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
 int main() {
     Node* root = createStaticBST();
-    reverseTreePathBST(root, 4);
+    // reverseTreePathBST(root, 4);
+    getPathBT(root, 40);
 }
