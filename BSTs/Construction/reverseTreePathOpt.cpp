@@ -26,22 +26,29 @@ class Node {
 
 void reversePathBSTUtil(Node* root, int key, queue<int>& path) {
 
-    if (!root) {
-        return ;
+    // You should check first and foremost whether the current root is the key you're looking for,
+    // because you might not want to descend down into the calls, if you've found the node.
+
+    if (root->val == key) {
+        path.push(root->val);
+        root->val = path.front();
+        path.pop();
+        return;
     }
 
-    path.push(root->val);
-
-    if (key < root->val) {
+    else if (key < root->val) {
+        path.push(root->val);
         reversePathBSTUtil(root->left, key, path);
+        root->val = path.front();
+        path.pop();
     }
 
-    else if (key > root->val) {
+    else {
+        path.push(root->val);
         reversePathBSTUtil(root->right, key, path);
+        root->val = path.front();
+        path.pop();
     }
-
-    root->val = path.front();
-    path.pop();
 }
 
 void inorderTraversal(Node* root) {
