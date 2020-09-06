@@ -25,26 +25,23 @@ class Node {
 };
 
 void reversePathBSTUtil(Node* root, int key, queue<int>& path) {
-    if (root->val == key) {
-        path.push(root->val);
-        root->val = path.front();
-        path.pop();
-        return;
+
+    if (!root) {
+        return ;
     }
 
-    else if (key < root->val) {
-        path.push(root->val);
+    path.push(root->val);
+
+    if (key < root->val) {
         reversePathBSTUtil(root->left, key, path);
-        root->val = path.front();
-        path.pop();
     }
 
-    else {
-        path.push(root->val);
+    else if (key > root->val) {
         reversePathBSTUtil(root->right, key, path);
-        root->val = path.front();
-        path.pop();
     }
+
+    root->val = path.front();
+    path.pop();
 }
 
 void inorderTraversal(Node* root) {
